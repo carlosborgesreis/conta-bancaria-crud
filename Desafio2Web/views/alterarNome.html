@@ -1,0 +1,23 @@
+<div class="col-lg-12">
+    <form name="formAlterarNome" novalidate>
+        <div class="form-horizontal">
+            <div class="form-group" ng-class="{ 'has-error' : formAlterarNome.nome.$invalid && (formAlterarNome.$submitted || formAlterarNome.nome.$touched)}">
+                <label class="col-lg-3 control-label" for="nome">
+                    Novo nome:
+                </label>
+                <div class="col-lg-9">
+                    <input type="text" class="form-control" ng-model="alterarNome.alterarNomeModel.cliente.nome" name="nome" required/>
+                    <div ng-show="formAlterarNome.$submitted || formAlterarNome.nome.$touched">
+                        <div class="text-danger" ng-show="formAlterarNome.nome.$error.required">Este campo é obrigatório.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-12 container">
+                    <button type="submit" ng-click="alterarNome.alterarNome(formAlterarNome)" class="btn btn-default">Alterar</button>
+                    <button type="submit" ng-click="alterarNome.cancelar()" class="btn btn-default">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,31 @@
+<div class="row" id="tabela" ui-view>
+    <div class="col-lg-10">
+        <table class="table table-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Número</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Saldo</th>
+                    <th scope="col">Limite</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="conta in home.contas">
+                    <th scope="row">{{conta.contaId}}</th>
+                    <td>{{conta.cliente.nome}}</td>
+                    <td>{{conta.saldo | currency:"RS$"}}</td>
+                    <td>{{conta.limite | currency:"RS$"}}</td>
+                    <td>
+                        <button type="button" ng-click="home.sacar(conta)" class="btn btn-outline-dark">Sacar</button>
+                        <button type="button" ng-click="home.depositar(conta)" class="btn btn-outline-dark">Depositar</button>
+                        <button type="button" ng-click="home.alterarNome(conta)" class="btn btn-outline-dark">Alterar nome</button>
+                        <button type="button" ng-click="home.transferir(conta)" class="btn btn-outline-dark">Transferir</button>
+                        <button type="button" ng-click="home.deletar(conta)" class="btn btn-outline-danger">Deletar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" ng-click="home.criar()" class="btn btn-outline-dark">Adicionar</button>
+    </div>
+</div>
